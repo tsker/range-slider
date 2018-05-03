@@ -111,7 +111,7 @@ class RangeSlider {
 		e.preventDefault();
 		if (this.movePoint) {
 			this.movePoint.el.classList.remove('y-point-active');
-			this.movePoint = undefined;
+			this.movePoint = null;
 		}
 	}
 
