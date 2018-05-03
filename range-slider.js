@@ -72,7 +72,6 @@ class RangeSlider {
 		this.updateProcess();
 		this.opts.onChange(safeValues);
 	}
-
 	resize() {
 		let { max, min, step, el } = this.opts;
 		this.pointCount = Math.ceil((max - min) / step);
