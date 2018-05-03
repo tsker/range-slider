@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>range slider</title>
+    <style>
+        .main {
+            padding: 20px;
+        }
+
+        .value-show {
+            margin-top: 30px;
+        }
+    </style>
+    <link rel="stylesheet" href="./range-slider.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="y-range-slider"></div>
+        <div class="value-show"></div>
+        <div class="active-point-offset"></div>
+    </div>
+
+    <script src='./range-slider.js'></script>
+    <script>
+        let value = [10,90]
+        let rangeSlider = new RangeSlider({
+            el: '.y-range-slider',
+            value,
+            onChange: setValueShow,
+            onPointPosition(offset) {
+                document.querySelector('.active-point-offset').innerHTML = offset
+            }
+        })
+
+        setValueShow(value)
+        function setValueShow(value){
+            document.querySelector('.value-show').innerHTML = value
+        }
+
+        setTimeout(() => {
+            rangeSlider.setValue([20, 80])
+        }, 5e3);
+    </script>
+
+</body>
+
+</html>
